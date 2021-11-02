@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>blocks/Sidebar.qml</file>
+        <file>blocks/Editor.qml</file>
+        <file>blocks/Toolbar.qml</file>
     </qresource>
 </RCC>
