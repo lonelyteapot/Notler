@@ -3,8 +3,6 @@ import QtQuick 2.6
 Rectangle {
     color: "#e9ecef"
 
-    property alias noteTitle: textInput.text
-
     TextInput {
         id: textInput
         anchors.fill: parent
@@ -13,5 +11,7 @@ Rectangle {
         leftPadding: 6
         rightPadding: 6
         clip: true
+        text: root.currentNote.title
+        onTextChanged: root.currentNote.title = text
     }
 }

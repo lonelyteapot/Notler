@@ -30,6 +30,12 @@ Rectangle {
             border.width: 2
             border.color: "#ced4da"
             radius: 8
+            color: model === root.currentNote ? "#e2eafc" : "#f8f9fa"
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: root.currentNote = model
+            }
 
             ColumnLayout {
                 anchors.fill: parent

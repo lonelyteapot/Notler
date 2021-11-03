@@ -5,11 +5,13 @@ import QtQuick.Layouts
 import "blocks"
 
 Window {
-    id: window
+    id: root
     width: 640
     height: 480
     visible: true
     title: qsTr("Notler")
+
+    property var currentNote
 
     GridLayout {
         anchors.fill: parent

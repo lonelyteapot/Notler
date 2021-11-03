@@ -3,8 +3,6 @@ import QtQuick 2.6
 Rectangle {
     color: "#f8f9fa"
 
-    property alias text: textEdit.text
-
     TextEdit {
         id: textEdit
         anchors.fill: parent
@@ -18,5 +16,7 @@ Rectangle {
         selectByMouse: true
         selectByKeyboard: true
         clip: true
+        text: root.currentNote.text
+        onTextChanged: root.currentNote.text = text
     }
 }
