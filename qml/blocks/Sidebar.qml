@@ -8,15 +8,8 @@ Rectangle {
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.topMargin: 0
-        anchors.bottomMargin: 8
-        anchors.leftMargin: 8
-        anchors.rightMargin: 8
+        anchors.margins: 8
         spacing: 4
-
-        Item {
-            Layout.preferredHeight: 32
-        }
 
         ListView {
             id: notesList
