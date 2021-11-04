@@ -11,7 +11,7 @@ Window {
     visible: true
     title: qsTr("Notler")
 
-    property var currentNote
+    readonly property var currentNote: sidebar.currentModelData
 
     GridLayout {
         anchors.fill: parent

@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.0
 Rectangle {
     color: "#dee2e6"
 
+    readonly property variant currentModelData: notesList.currentItem.modelData
+
     ListModel {
         id: notesListModel
         ListElement {
@@ -24,17 +26,20 @@ Rectangle {
         id: noteDelegate
 
         Rectangle {
+            id: noteCard
             anchors.left: parent.left
             anchors.right: parent.right
             implicitHeight: 64
             border.width: 2
             border.color: "#ced4da"
             radius: 8
-            color: model === root.currentNote ? "#e2eafc" : "#f8f9fa"
+            color: ListView.isCurrentItem ? "#e2eafc" : "#f8f9fa"
+
+            readonly property variant modelData: model
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: root.currentNote = model
+                onClicked: noteCard.ListView.view.currentIndex = model.index
             }
 
             ColumnLayout {
@@ -51,7 +56,7 @@ Rectangle {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 20
                     font.pixelSize: 16
-                    text: model.title
+                    text: model.title || qsTr("Untitled note")
                 }
 
                 Text {
@@ -68,10 +73,43 @@ Rectangle {
         }
     }
 
+    Component {
+        id: notesListFooter
+
+        Item {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            implicitHeight: 64
+
+            Rectangle {
+                anchors.centerIn: parent
+                implicitWidth: txt.width + 26
+                implicitHeight: 32
+                color: "#f8f9fa"
+                radius: 18
+
+                Text {
+                    id: txt
+                    anchors.centerIn: parent
+                    font.pixelSize: 14
+                    text: "new note"
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        notesList.model.append({title: "", text: ""})
+                        notesList.currentIndex = notesList.model.count - 1
+                    }
+                }
+            }
+        }
+    }
+
     ColumnLayout {
         anchors.fill: parent
         anchors.topMargin: 0
-        anchors.bottomMargin: 0
+        anchors.bottomMargin: 8
         anchors.leftMargin: 8
         anchors.rightMargin: 8
         spacing: 4
@@ -88,6 +126,7 @@ Rectangle {
             clip: true
             model: notesListModel
             delegate: noteDelegate
+            footer: notesListFooter
         }
     }
 }
