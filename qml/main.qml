@@ -33,6 +33,7 @@ Window {
             Layout.preferredHeight: 32
             Layout.row: 0
             Layout.column: 1
+            enabled: !!currentNote
         }
 
         Editor {
@@ -41,6 +42,7 @@ Window {
             Layout.fillHeight: true
             Layout.row: 1
             Layout.column: 1
+            enabled: !!currentNote
         }
     }
 }

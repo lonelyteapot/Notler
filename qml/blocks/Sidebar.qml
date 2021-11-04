@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.0
 Rectangle {
     color: "#dee2e6"
 
-    readonly property variant currentModelData: notesList.currentItem.modelData
+    readonly property variant currentModelData: notesList.currentItem?.modelData
 
     ColumnLayout {
         anchors.fill: parent

@@ -11,7 +11,7 @@ Rectangle {
         leftPadding: 6
         rightPadding: 6
         clip: true
-        text: root.currentNote.title
-        onTextChanged: root.currentNote.title = text
+        text: root.currentNote?.title || ""
+        onTextChanged: if (root.currentNote) root.currentNote.title = text
     }
 }

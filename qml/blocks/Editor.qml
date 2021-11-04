@@ -16,7 +16,7 @@ Rectangle {
         selectByMouse: true
         selectByKeyboard: true
         clip: true
-        text: root.currentNote.text
-        onTextChanged: root.currentNote.text = text
+        text: root.currentNote?.text || ""
+        onTextChanged: if (root.currentNote) root.currentNote.text = text
     }
 }
