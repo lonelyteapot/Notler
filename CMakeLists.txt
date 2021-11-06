@@ -13,12 +13,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 COMPONENTS Core Quick REQUIRED)
 
+set(PROJECT_HEADERS
+    src/objects/note.h
+    src/objects/noteslist.h
+)
+
 set(PROJECT_SOURCES
     src/main.cpp
     qml/qml.qrc
+    src/objects/note.cpp
+    src/objects/noteslist.cpp
 )
 
-qt_add_executable(${PROJECT_NAME} MANUAL_FINALIZATION ${PROJECT_SOURCES})
+qt_add_executable(${PROJECT_NAME} MANUAL_FINALIZATION ${PROJECT_SOURCES} ${PROJECT_HEADERS})
 
 target_compile_definitions(${PROJECT_NAME}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
