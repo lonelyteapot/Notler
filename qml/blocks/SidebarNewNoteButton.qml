@@ -23,8 +23,8 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                notesList.model.append({title: "", text: ""})
-                notesList.currentIndex = notesList.model.count - 1
+                notesList.model.insertNote(notesList.model.rowCount())
+                notesList.currentIndex = notesList.model.rowCount() - 1
             }
         }
     }

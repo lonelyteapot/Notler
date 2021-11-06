@@ -5,7 +5,6 @@
         <file>blocks/Editor.qml</file>
         <file>blocks/Toolbar.qml</file>
         <file>blocks/SidebarNoteDelegate.qml</file>
-        <file>blocks/SidebarListModel.qml</file>
         <file>blocks/SidebarNewNoteButton.qml</file>
     </qresource>
 </RCC>

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.0
+import NotlerTypes 1.0
 
 Rectangle {
     color: "#dee2e6"
@@ -17,7 +18,7 @@ Rectangle {
             Layout.fillHeight: true
             spacing: 4
             clip: true
-            model: SidebarListModel {}
+            model: NotesListModel {}
             delegate: SidebarNoteDelegate {}
             footer: SidebarNewNoteButton {}
         }

@@ -51,7 +51,7 @@ Rectangle {
                 anchors.margins: -4
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onClicked: noteCard.ListView.view.model.remove(model.index)
+                onClicked: noteCard.ListView.view.model.removeNote(model.index)
             }
         }
 
