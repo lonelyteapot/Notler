@@ -1,6 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <src/models/noteslistmodel.h>
+#include <src/models/notebookmodel.h>
 
 
 int main(int argc, char *argv[])
@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
 
-    qmlRegisterType<NotesListModel>("NotlerTypes", 1, 0, "NotesListModel");
+    qmlRegisterType<NotebookModel>("NotlerTypes", 1, 0, "NotebookModel");
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

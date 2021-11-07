@@ -15,16 +15,16 @@ find_package(Qt6 COMPONENTS Core Quick REQUIRED)
 
 set(PROJECT_HEADERS
     src/objects/note.h
-    src/objects/noteslist.h
-    src/models/noteslistmodel.h
+    src/objects/notebook.h
+    src/models/notebookmodel.h
 )
 
 set(PROJECT_SOURCES
     src/main.cpp
     qml/qml.qrc
     src/objects/note.cpp
-    src/objects/noteslist.cpp
-    src/models/noteslistmodel.cpp
+    src/objects/notebook.cpp
+    src/models/notebookmodel.cpp
 )
 
 qt_add_executable(${PROJECT_NAME} MANUAL_FINALIZATION ${PROJECT_SOURCES} ${PROJECT_HEADERS})

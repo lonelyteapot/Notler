@@ -18,7 +18,7 @@ Rectangle {
             Layout.fillHeight: true
             spacing: 4
             clip: true
-            model: NotesListModel {}
+            model: NotebookModel {}
             delegate: SidebarNoteDelegate {}
             footer: SidebarNewNoteButton {}
         }

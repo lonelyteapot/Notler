@@ -1,17 +1,26 @@
 #ifndef NOTE_H
 #define NOTE_H
 
-#include <string>
-
+#include <QString>
 
 class Note
 {
 public:
-    std::string title {};
-    std::string text {};
+    Note(QString title = {}, QString text = {});
 
-    Note();
-    Note(std::string title, std::string text);
+    /// Returns the Note's title.
+    QString title();
+    /// Returns the Note's text.
+    QString text();
+
+    /// Renames the Note to %newTitle.
+    void rename(QString newTitle);
+    /// Sets the Note's text to %newText.
+    void setText(QString newText);
+
+private:
+    QString _title {};
+    QString _text {};
 };
 
 #endif // NOTE_H

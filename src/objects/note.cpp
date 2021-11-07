@@ -1,11 +1,26 @@
 #include "note.h"
 
-
-Note::Note()
+Note::Note(QString title, QString text):
+    _title(title), _text(text)
 {
 }
 
-Note::Note(std::string title, std::string text):
-    title(title), text(text)
+QString Note::title()
 {
+    return _title;
+}
+
+QString Note::text()
+{
+    return _text;
+}
+
+void Note::rename(QString newTitle)
+{
+    _title = newTitle;
+}
+
+void Note::setText(QString newText)
+{
+    _text = newText;
 }
