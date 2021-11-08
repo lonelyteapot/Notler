@@ -5,12 +5,12 @@ Note::Note(QString title, QString text):
 {
 }
 
-QString Note::title()
+QString Note::title() const
 {
     return _title;
 }
 
-QString Note::text()
+QString Note::text() const
 {
     return _text;
 }

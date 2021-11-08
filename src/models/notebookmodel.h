@@ -35,7 +35,7 @@ public:
 
     /// Creates a Note at %idx into the Notebook.
     Q_INVOKABLE bool createNote(int idx);
-    /// Removes a Note at %idx from the Notebook.
+    /// Removes the Note at %idx from the Notebook.
     Q_INVOKABLE bool removeNote(int idx);
 
 private:

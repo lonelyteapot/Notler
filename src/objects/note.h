@@ -9,9 +9,9 @@ public:
     Note(QString title = {}, QString text = {});
 
     /// Returns the Note's title.
-    QString title();
+    QString title() const;
     /// Returns the Note's text.
-    QString text();
+    QString text() const;
 
     /// Renames the Note to %newTitle.
     void rename(QString newTitle);
