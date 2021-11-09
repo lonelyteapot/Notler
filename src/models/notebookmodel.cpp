@@ -96,3 +96,10 @@ bool NotebookModel::removeNote(int idx)
 {
     return removeRows(idx, 1);
 }
+
+bool NotebookModel::saveNote(int idx) const
+{
+    if (idx < 0 || idx >= _notebook.noteCount())
+        return false;
+    return _notebook.saveNote(idx);
+}

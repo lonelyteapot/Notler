@@ -14,6 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt6 COMPONENTS Core Quick REQUIRED)
 
 set(PROJECT_HEADERS
+    src/globals.h
     src/objects/note.h
     src/objects/notebook.h
     src/models/notebookmodel.h

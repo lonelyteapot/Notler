@@ -8,8 +8,9 @@
 class Notebook
 {
 public:
-    Notebook();
+    Notebook() = default;
     Notebook(QString title);
+    static Notebook loadFromDirectory(QDir directory);
 
     /// Returns the Notebook's title.
     QString title() const;
@@ -22,12 +23,14 @@ public:
     void insertNoteCopies(int idx, int count = 1, const Note& note = {});
     /// Removes %count notes starting at %idx from the Notebook.
     void removeNotes(int idx, int count = 1);
+    /// Saves the Note at %idx to local storage.
+    bool saveNote(int idx) const;
 
     /// Returns the Note at %idx.
     Note& operator[](int idx);
 
 private:
-    QString _title;
+    QString _title {"Untitled notebook"};
     std::vector<Note> _notes {};
 };
 

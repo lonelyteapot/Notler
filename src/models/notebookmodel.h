@@ -3,6 +3,7 @@
 
 #include <QAbstractListModel>
 #include <src/objects/notebook.h>
+#include <src/globals.h>
 
 class NotebookModel : public QAbstractListModel
 {
@@ -37,9 +38,11 @@ public:
     Q_INVOKABLE bool createNote(int idx);
     /// Removes the Note at %idx from the Notebook.
     Q_INVOKABLE bool removeNote(int idx);
+    /// Saves the Note at %idx to local storage.
+    Q_INVOKABLE bool saveNote(int idx) const;
 
 private:
-    Notebook _notebook {};
+    Notebook _notebook = Notebook::loadFromDirectory({ROOT_STORAGE_PATH + "/Default notebook"});
 };
 
 #endif // NOTESLISTMODEL_H

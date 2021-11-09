@@ -1,18 +1,34 @@
 #include "notebook.h"
+#include <QDir>
 #include <cassert>
-
-Notebook::Notebook():
-    _title("Untitled notebook")
-{
-    // TODO Remove placeholder notes
-    _notes.push_back({"First note", "Lorem ipsum dolor sit amet, consectetur adipiscing elit."});
-    _notes.push_back({"Second note", "Curabitur at porttitor velit. Nulla sodales sodales est quis sagittis."});
-    _notes.push_back({"Third note", "Nunc condimentum leo ac velit elementum aliquet. Nullam lobortis ullamcorper arcu, sit amet lobortis mi sagittis in."});
-}
+#include <iostream>
+#include <src/globals.h>
 
 Notebook::Notebook(QString title):
     _title(title)
 {
+}
+
+Notebook Notebook::loadFromDirectory(QDir directory)
+{
+    Notebook notebook {};
+
+    QFileInfoList fileInfoList = directory.entryInfoList(QDir::Readable | QDir::Files);
+
+    if (fileInfoList.isEmpty()) {
+        std::cerr << "Couldn't read notebook \"" << directory.dirName().toStdString() << "\"" << std::endl;
+        return notebook;
+    }
+
+    notebook._title = directory.dirName();
+
+    notebook._notes.reserve(fileInfoList.size());
+    for (QFileInfo& fileInfo : fileInfoList) {
+        Note note = Note::loadFromFile(fileInfo);
+        notebook._notes.push_back(note);
+    }
+
+    return notebook;
 }
 
 QString Notebook::title() const
@@ -42,6 +58,23 @@ void Notebook::removeNotes(int idx, int count)
     assert(idx >= 0 && idx < _notes.size());
     assert(count >= 1 && idx + count <= _notes.size());
     _notes.erase(_notes.begin() + idx, _notes.begin() + idx + count);
+}
+
+bool Notebook::saveNote(int idx) const
+{
+    assert(idx >= 0 && idx < _notes.size());
+
+    const QDir notebookDir {ROOT_STORAGE_PATH + "/" + title()};
+
+    bool notebookDirAvailable = notebookDir.mkpath(".");
+    if (!notebookDirAvailable) {
+        std::cerr << "Unable to create directory \"" << notebookDir.path().toStdString() << "\"" << std::endl;
+        return false;
+    }
+
+    _notes[idx].saveToFile(notebookDir);
+
+    return true;
 }
 
 Note& Notebook::operator[](int idx)
