@@ -25,7 +25,7 @@ public:
     /// Removes %count notes starting at %idx from the Notebook.
     void removeNotes(int idx, int count = 1);
     /// Saves the Note at %idx to local storage.
-    bool saveNote(int idx);
+    bool saveNote(int idx) const;
 
     /// Returns the Note at %idx.
     Note& operator[](int idx);

@@ -10,7 +10,6 @@ QHash<int, QByteArray> NotebookModel::roleNames() const
     QHash<int, QByteArray> roleNames;
     roleNames[TitleRole] = "title";
     roleNames[TextRole] = "text";
-    roleNames[IsSavedRole] = "isSaved";
     return roleNames;
 }
 
@@ -37,9 +36,12 @@ QVariant NotebookModel::data(const QModelIndex &index, int role) const
     Notebook& constNotebook = *const_cast<Notebook*>(&_notebook);
     Note& note = constNotebook[index.row()];
 
-    if (role == TitleRole)   return note.title();
-    if (role == TextRole)    return note.text();
-    if (role == IsSavedRole) return note.isSaved();
+    if (role == TitleRole) {
+        return note.title();
+    }
+    if (role == TextRole) {
+        return note.text();
+    }
 
     return QVariant();
 }
@@ -59,7 +61,7 @@ bool NotebookModel::setData(const QModelIndex &index, const QVariant &value, int
         return false;
     }
 
-    emit dataChanged(index, index, QVector<int>() << role << IsSavedRole);
+    emit dataChanged(index, index, QVector<int>() << role);
     return true;
 }
 
@@ -95,13 +97,9 @@ bool NotebookModel::removeNote(int idx)
     return removeRows(idx, 1);
 }
 
-bool NotebookModel::saveNote(int idx)
+bool NotebookModel::saveNote(int idx) const
 {
     if (idx < 0 || idx >= _notebook.noteCount())
         return false;
-    bool wasSaved = _notebook.saveNote(idx);
-    if (wasSaved) {
-        emit dataChanged(index(idx), index(idx), QVector<int>() << IsSavedRole);
-    }
-    return wasSaved;
+    return _notebook.saveNote(idx);
 }

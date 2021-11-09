@@ -22,24 +22,17 @@ QString Note::text() const
     return _text;
 }
 
-bool Note::isSaved() const
-{
-    return _isSaved;
-}
-
 void Note::rename(QString newTitle)
 {
-    _isSaved = false;
     _title = newTitle;
 }
 
 void Note::setText(QString newText)
 {
-    _isSaved = false;
     _text = newText;
 }
 
-bool Note::saveToFile(QDir directory)
+bool Note::saveToFile(QDir directory) const
 {
     QString fileName = uuid().toString();
     QFile file {directory.path() + "/" + fileName};
@@ -55,7 +48,6 @@ bool Note::saveToFile(QDir directory)
     fileStream << text();
 
     file.close();
-    _isSaved = true;
     return true;
 }
 
@@ -96,6 +88,5 @@ Note Note::loadFromFile(QFileInfo fileInfo)
     file.close();
     // TODO Refactor nullability
     note._uuid = uuid;
-    note._isSaved = true;
     return note;
 }
