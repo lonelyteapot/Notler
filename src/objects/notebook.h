@@ -10,6 +10,7 @@ class Notebook
 public:
     Notebook() = default;
     Notebook(QString title);
+    ~Notebook();
     static Notebook loadFromDirectory(QDir directory);
 
     /// Returns the Notebook's title.

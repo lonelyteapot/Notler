@@ -9,6 +9,13 @@ Notebook::Notebook(QString title):
 {
 }
 
+Notebook::~Notebook()
+{
+    for (int i = 0; i < _notes.size(); ++i) {
+        saveNote(i);
+    }
+}
+
 Notebook Notebook::loadFromDirectory(QDir directory)
 {
     Notebook notebook {};
