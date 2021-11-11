@@ -64,6 +64,12 @@ void Notebook::removeNotes(int idx, int count)
 {
     assert(idx >= 0 && idx < _notes.size());
     assert(count >= 1 && idx + count <= _notes.size());
+
+    const QDir notebookDir {ROOT_STORAGE_PATH + "/" + title()};
+    for (int i = idx; i < idx + count; ++i) {
+        _notes[i].deleteFile(notebookDir);
+    }
+
     _notes.erase(_notes.begin() + idx, _notes.begin() + idx + count);
 }
 

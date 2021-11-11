@@ -51,6 +51,12 @@ bool Note::saveToFile(QDir directory) const
     return true;
 }
 
+bool Note::deleteFile(QDir directory) const
+{
+    QString fileName = uuid().toString();
+    return directory.remove(fileName);
+}
+
 Note Note::loadFromFile(QFileInfo fileInfo)
 {
     Note note {};

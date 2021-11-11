@@ -24,6 +24,8 @@ public:
     void setText(QString newText);
     /// Saves the Note to a local file in the %directory.
     bool saveToFile(QDir directory) const;
+    /// Deletes the Note from local storage.
+    bool deleteFile(QDir directory) const;
 
 private:
     QUuid _uuid = QUuid::createUuid();
