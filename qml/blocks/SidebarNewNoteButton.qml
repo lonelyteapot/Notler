@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.0
 Item {
     anchors.left: parent.left
     anchors.right: parent.right
-    implicitHeight: 64
+    implicitHeight: 48
 
     Rectangle {
         anchors.centerIn: parent
