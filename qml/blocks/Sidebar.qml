@@ -8,6 +8,7 @@ Rectangle {
 
     readonly property variant currentNotebook: notesList.model
     readonly property variant currentNote: notesList.currentItem?.modelData;
+    property alias currentNoteIndex: notesList.currentIndex
 
     ColumnLayout {
         anchors.fill: parent

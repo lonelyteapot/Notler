@@ -38,17 +38,24 @@ Rectangle {
             text: model.title || qsTr("Untitled note")
         }
 
-        Text {
-            id: deleteText
-            font.pixelSize: 12
-            font.underline: deleteMouseArea.containsMouse
-            color: deleteMouseArea.containsMouse ? "#495057" : "#adb5bd"
-            text: "x"
+        Rectangle {
+            Layout.preferredWidth: 16
+            Layout.preferredHeight: width
+            Layout.rightMargin: -8
+            radius: height * 0.5
+            color: "#f0efeb"
+
+            Text {
+                id: deleteText
+                anchors.centerIn: parent
+                font.pixelSize: 10
+                color: deleteMouseArea.containsMouse ? "#495057" : "#adb5bd"
+                text: "✕"
+            }
 
             MouseArea {
                 id: deleteMouseArea
                 anchors.fill: parent
-                anchors.margins: -4
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
                 onClicked: noteCard.ListView.view.model.removeNote(model.index)
