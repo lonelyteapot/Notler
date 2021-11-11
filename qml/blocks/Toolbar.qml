@@ -7,9 +7,9 @@ Rectangle {
         id: textInput
         anchors.fill: parent
         verticalAlignment: TextInput.AlignVCenter
-        font.pixelSize: 22
-        leftPadding: 6
-        rightPadding: 6
+        font.pixelSize: 20
+        leftPadding: 8
+        rightPadding: 8
         clip: true
         text: root.currentNote?.title || ""
         onTextChanged: if (root.currentNote) root.currentNote.title = text

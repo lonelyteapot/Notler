@@ -34,6 +34,8 @@ public:
     /// Removes %count Notes starting at index %row from the Notebook.
     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
 
+    /// Returns the title of the Notebook
+    Q_INVOKABLE QString getTitle() const;
     /// Creates a Note at %idx into the Notebook.
     Q_INVOKABLE bool createNote(int idx);
     /// Removes the Note at %idx from the Notebook.

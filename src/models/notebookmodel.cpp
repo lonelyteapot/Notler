@@ -87,6 +87,11 @@ bool NotebookModel::removeRows(int row, int count, const QModelIndex &parent)
     return true;
 }
 
+QString NotebookModel::getTitle() const
+{
+    return _notebook.title();
+}
+
 bool NotebookModel::createNote(int idx)
 {
     return insertRows(idx, 1);
