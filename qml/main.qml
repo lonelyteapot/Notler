@@ -11,7 +11,9 @@ Window {
     visible: true
     title: qsTr("Notler")
 
-    readonly property var currentNote: sidebar.currentModelData
+    readonly property variant currentNotebook: sidebar.currentNotebook
+    readonly property variant currentNote: sidebar.currentNote
+    readonly property int currentNoteIndex: sidebar.currentNoteIndex
 
     GridLayout {
         anchors.fill: parent

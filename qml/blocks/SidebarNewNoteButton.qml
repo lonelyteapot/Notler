@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.0
 Item {
     anchors.left: parent.left
     anchors.right: parent.right
-    implicitHeight: 64
+    implicitHeight: 48
 
     Rectangle {
         anchors.centerIn: parent
@@ -23,8 +23,8 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                notesList.model.append({title: "", text: ""})
-                notesList.currentIndex = notesList.model.count - 1
+                notesList.model.createNote(notesList.model.rowCount())
+                notesList.currentIndex = notesList.model.rowCount() - 1
             }
         }
     }
