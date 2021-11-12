@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.0
 import NotlerTypes 1.0
 
 Rectangle {
-    color: "#ced4da"
+    color: "#dee2e6"
     clip: true
 
     readonly property variant currentNotebook: notesList.model
@@ -20,7 +20,8 @@ Rectangle {
             Layout.topMargin: -radius
             Layout.leftMargin: 6
             Layout.rightMargin: 6
-            color: "#e9ecef"
+            color: "#e2eafc"
+            border.color: "#ced4da"
             radius: 10
             z: 1
 
@@ -45,9 +46,9 @@ Rectangle {
             ListView {
                 id: notesList
                 anchors.fill: parent
-                anchors.topMargin: 6
-                displayMarginBeginning: 6
-                spacing: 4
+                anchors.topMargin: 5
+                displayMarginBeginning: 5
+                spacing: 5
                 model: NotebookModel {}
                 delegate: SidebarNoteDelegate {}
                 footer: SidebarNewNoteButton {}

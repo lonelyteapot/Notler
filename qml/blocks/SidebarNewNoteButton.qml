@@ -11,6 +11,7 @@ Item {
         implicitWidth: txt.width + 26
         implicitHeight: 32
         color: "#f8f9fa"
+        border.color: "#ced4da"
         radius: 18
 
         Text {

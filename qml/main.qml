@@ -10,6 +10,7 @@ Window {
     height: 480
     visible: true
     title: qsTr("Notler")
+    color: "#ced4da"
 
     readonly property variant currentNotebook: sidebar.currentNotebook
     readonly property variant currentNote: sidebar.currentNote
@@ -17,8 +18,8 @@ Window {
 
     GridLayout {
         anchors.fill: parent
-        rowSpacing: 0
-        columnSpacing: 0
+        rowSpacing: 1
+        columnSpacing: 1
 
         Sidebar {
             id: sidebar
@@ -32,7 +33,7 @@ Window {
         Toolbar {
             id: toolbar
             Layout.fillWidth: true
-            Layout.preferredHeight: 32
+            Layout.preferredHeight: 30
             Layout.row: 0
             Layout.column: 1
             enabled: !!currentNote

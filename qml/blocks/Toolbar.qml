@@ -2,7 +2,7 @@ import QtQuick 2.6
 import QtQuick.Layouts 1.0
 
 Rectangle {
-    color: "#e9ecef"
+    color: "#e2eafc"
     clip: true
 
     RowLayout {
@@ -38,7 +38,7 @@ Rectangle {
         }
 
         RoundButton {
-            Layout.preferredHeight: 22
+            Layout.preferredHeight: 20
             text: "✕"
             onClicked: sidebar.currentNoteIndex = -1
         }

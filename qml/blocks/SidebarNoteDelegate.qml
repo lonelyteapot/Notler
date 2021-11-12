@@ -6,7 +6,6 @@ Rectangle {
     anchors.left: parent?.left
     anchors.right: parent?.right
     implicitHeight: 64
-    border.width: 2
     border.color: "#ced4da"
     radius: 8
     clip: true
