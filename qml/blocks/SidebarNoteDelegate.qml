@@ -38,28 +38,12 @@ Rectangle {
             text: model.title || qsTr("Untitled note")
         }
 
-        Rectangle {
-            Layout.preferredWidth: 16
-            Layout.preferredHeight: width
+        RoundButton {
+            Layout.preferredHeight: 16
             Layout.rightMargin: -8
-            radius: height * 0.5
             color: "#f0efeb"
-
-            Text {
-                id: deleteText
-                anchors.centerIn: parent
-                font.pixelSize: 10
-                color: deleteMouseArea.containsMouse ? "#495057" : "#adb5bd"
-                text: "✕"
-            }
-
-            MouseArea {
-                id: deleteMouseArea
-                anchors.fill: parent
-                hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
-                onClicked: noteCard.ListView.view.model.removeNote(model.index)
-            }
+            text: "✕"
+            onClicked: noteCard.ListView.view.model.removeNote(model.index)
         }
 
         Text {

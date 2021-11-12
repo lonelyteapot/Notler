@@ -6,5 +6,6 @@
         <file>blocks/Toolbar.qml</file>
         <file>blocks/SidebarNoteDelegate.qml</file>
         <file>blocks/SidebarNewNoteButton.qml</file>
+        <file>blocks/RoundButton.qml</file>
     </qresource>
 </RCC>

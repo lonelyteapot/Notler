@@ -21,7 +21,7 @@ Rectangle {
                 id: textHint
                 anchors.fill: parent
                 verticalAlignment: TextInput.AlignVCenter
-                font.pixelSize: 20
+                font.pixelSize: 18
                 opacity: 0.5
                 text: qsTr("Untitled note")
                 visible: textInput.text == ""
@@ -31,28 +31,16 @@ Rectangle {
                 id: textInput
                 anchors.fill: parent
                 verticalAlignment: TextInput.AlignVCenter
-                font.pixelSize: 20
+                font.pixelSize: 18
                 text: root.currentNote?.title || "";
                 onTextChanged: if (root.currentNote) root.currentNote.title = text
             }
         }
 
-        Rectangle {
-            Layout.preferredWidth: 22
-            Layout.preferredHeight: width
-            radius: height * 0.5
-
-            Text {
-                anchors.centerIn: parent
-                font.pixelSize: 14
-                text: "✕"
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-                onClicked: sidebar.currentNoteIndex = -1
-            }
+        RoundButton {
+            Layout.preferredHeight: 22
+            text: "✕"
+            onClicked: sidebar.currentNoteIndex = -1
         }
     }
 }
