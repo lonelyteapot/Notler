@@ -1,7 +1,7 @@
 import QtQuick 2.6
 
 Rectangle {
-    color: "#f8f9fa"
+    color: colors.background
 
     TextEdit {
         id: textEdit
@@ -10,7 +10,7 @@ Rectangle {
         bottomPadding: 6
         leftPadding: 6
         rightPadding: 6
-        font.pixelSize: 16
+        font.pixelSize: 14
         focus: true
         wrapMode: TextEdit.Wrap
         selectByMouse: true

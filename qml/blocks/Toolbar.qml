@@ -2,7 +2,7 @@ import QtQuick 2.6
 import QtQuick.Layouts 1.0
 
 Rectangle {
-    color: "#e2eafc"
+    color: colors.canvas
     clip: true
 
     RowLayout {
@@ -21,7 +21,7 @@ Rectangle {
                 id: textHint
                 anchors.fill: parent
                 verticalAlignment: TextInput.AlignVCenter
-                font.pixelSize: 18
+                font.pixelSize: 16
                 opacity: 0.5
                 text: qsTr("Untitled note")
                 visible: textInput.text == ""
@@ -31,7 +31,7 @@ Rectangle {
                 id: textInput
                 anchors.fill: parent
                 verticalAlignment: TextInput.AlignVCenter
-                font.pixelSize: 18
+                font.pixelSize: 16
                 text: root.currentNote?.title || "";
                 onTextChanged: if (root.currentNote) root.currentNote.title = text
             }

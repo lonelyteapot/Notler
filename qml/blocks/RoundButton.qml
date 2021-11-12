@@ -13,13 +13,15 @@ MouseArea {
     Rectangle {
         id: background
         anchors.fill: parent
-        radius: height * 0.5
+        radius: height * 0.45
+        color: colors.canvas
+        border.color: colors.divider
     }
 
     Text {
         id: label
         anchors.centerIn: parent
-        font.pixelSize: roundButton.height - 6
+        font.pixelSize: roundButton.height - 8
         opacity: roundButton.containsMouse ? 1 : 0.625
     }
 }

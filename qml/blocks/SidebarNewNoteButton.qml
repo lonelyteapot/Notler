@@ -4,14 +4,14 @@ import QtQuick.Layouts 1.0
 Item {
     anchors.left: parent.left
     anchors.right: parent.right
-    implicitHeight: 48
+    implicitHeight: 46
 
     Rectangle {
         anchors.centerIn: parent
         implicitWidth: txt.width + 26
         implicitHeight: 32
         color: "#f8f9fa"
-        border.color: "#ced4da"
+        border.color: colors.divider
         radius: 18
 
         Text {
