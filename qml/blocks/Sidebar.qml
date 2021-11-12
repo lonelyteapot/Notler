@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.15
 import QtQuick.Layouts 1.0
 import NotlerTypes 1.0
 
@@ -16,13 +16,23 @@ Rectangle {
 
         Rectangle {
             Layout.fillWidth: true
-            Layout.preferredHeight: 32
-            color: "#dee2e6"
+            Layout.preferredHeight: 32 + radius
+            Layout.topMargin: -radius
+            Layout.leftMargin: 6
+            Layout.rightMargin: 6
+            color: "#e9ecef"
+            radius: 10
+            z: 1
 
-            Text {
-                anchors.centerIn: parent
-                font.pixelSize: 18
-                text: root.currentNotebook.getTitle()
+            Item {
+                anchors.fill: parent
+                anchors.topMargin: parent.radius
+
+                Text {
+                    anchors.centerIn: parent
+                    font.pixelSize: 16
+                    text: root.currentNotebook.getTitle()
+                }
             }
         }
 
@@ -31,12 +41,12 @@ Rectangle {
             Layout.fillHeight: true
             Layout.leftMargin: 8
             Layout.rightMargin: 8
-            clip: true
 
             ListView {
                 id: notesList
                 anchors.fill: parent
                 anchors.topMargin: 6
+                displayMarginBeginning: 6
                 spacing: 4
                 model: NotebookModel {}
                 delegate: SidebarNoteDelegate {}
