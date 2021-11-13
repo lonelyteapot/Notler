@@ -41,6 +41,10 @@ void Note::setText(QString newText)
 
 bool Note::saveToFile(QDir directory)
 {
+    if (_isSaved) {
+        return true;
+    }
+
     QString fileName = uuid().toString();
     QFile file {directory.path() + "/" + fileName};
 
