@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>blocks/Sidebar.qml</file>
+        <file>blocks/Editor.qml</file>
+        <file>blocks/Toolbar.qml</file>
+        <file>blocks/SidebarNoteDelegate.qml</file>
+        <file>blocks/SidebarNewNoteButton.qml</file>
+        <file>blocks/RoundButton.qml</file>
+        <file>blocks/CustomToolTip.qml</file>
+    </qresource>
+</RCC>
