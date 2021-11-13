@@ -7,5 +7,6 @@
         <file>blocks/SidebarNoteDelegate.qml</file>
         <file>blocks/SidebarNewNoteButton.qml</file>
         <file>blocks/RoundButton.qml</file>
+        <file>blocks/CustomToolTip.qml</file>
     </qresource>
 </RCC>

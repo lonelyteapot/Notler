@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.0
+import QtQuick.Controls 2.0
 
 Rectangle {
     id: noteCard
@@ -41,12 +42,30 @@ Rectangle {
         Text {
             id: unsavedIndicator
             text: model.isSaved ? "" : "!"
+
+            MouseArea {
+                id: mouseArea
+                anchors.fill: parent
+                anchors.margins: -3
+                hoverEnabled: true
+                cursorShape: Qt.WhatsThisCursor
+                visible: !model.isSaved
+            }
+
+            CustomToolTip {
+                visible: mouseArea.containsMouse
+                text: qsTr("Changes to this note have NOT been SAVED yet.\n" +
+                           "They should be saved automatically when the note is closed.\n" +
+                           "If they are not, there's been an issue and any changes may be lost."
+                           )
+            }
         }
 
         RoundButton {
             Layout.preferredHeight: 14
             color: colors.canvas
             text: "✕"
+            hint: qsTr("Delete permanently")
             onClicked: noteCard.ListView.view.model.removeNote(model.index)
         }
 

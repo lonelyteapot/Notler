@@ -43,6 +43,7 @@ Rectangle {
         RoundButton {
             Layout.fillHeight: true
             text: "✕"
+            hint: qsTr("Close from the editor")
             onClicked: sidebar.currentNoteIndex = -1
         }
     }

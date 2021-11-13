@@ -1,5 +1,6 @@
 import QtQuick 2.6
 import QtQuick.Layouts 1.0
+import QtQuick.Controls 2.0
 
 MouseArea {
     id: roundButton
@@ -9,6 +10,7 @@ MouseArea {
 
     property alias text: label.text
     property alias color: background.color
+    property alias hint: tooltip.text
 
     Rectangle {
         id: background
@@ -28,5 +30,10 @@ MouseArea {
         minimumPixelSize: 1
         fontSizeMode: Text.VerticalFit
         opacity: roundButton.containsMouse ? 1 : 0.625
+    }
+
+    CustomToolTip {
+        id: tooltip
+        visible: !!text && roundButton.containsMouse
     }
 }

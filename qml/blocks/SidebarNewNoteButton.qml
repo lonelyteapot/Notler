@@ -8,25 +8,32 @@ Item {
 
     Rectangle {
         anchors.centerIn: parent
-        implicitWidth: txt.width + 26
+        implicitWidth: label.width + 26
         implicitHeight: 32
         color: "#f8f9fa"
         border.color: colors.divider
         radius: 18
 
         Text {
-            id: txt
+            id: label
             anchors.centerIn: parent
             font.pixelSize: 14
             text: "new note"
         }
 
         MouseArea {
+            id: mouseArea
             anchors.fill: parent
+            hoverEnabled: true
             onClicked: {
                 notesList.model.createNote(notesList.model.rowCount())
                 notesList.currentIndex = notesList.model.rowCount() - 1
             }
+        }
+
+        CustomToolTip {
+            visible: mouseArea.containsMouse
+            text: qsTr("Create a new note")
         }
     }
 }
