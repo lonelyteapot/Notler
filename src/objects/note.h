@@ -17,13 +17,14 @@ public:
     QUuid uuid() const;
     QString title() const;
     QString text() const;
+    bool isSaved() const;
 
     /// Renames the Note to %newTitle.
     void rename(QString newTitle);
     /// Sets the Note's text to %newText.
     void setText(QString newText);
     /// Saves the Note to a local file in the %directory.
-    bool saveToFile(QDir directory) const;
+    bool saveToFile(QDir directory);
     /// Deletes the Note from local storage.
     bool deleteFile(QDir directory) const;
 
@@ -31,6 +32,7 @@ private:
     QUuid _uuid = QUuid::createUuid();
     QString _title {};
     QString _text {};
+    bool _isSaved = false;
 };
 
 #endif // NOTE_H

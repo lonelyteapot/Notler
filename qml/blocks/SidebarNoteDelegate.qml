@@ -26,7 +26,7 @@ Rectangle {
         anchors.rightMargin: 8
         rowSpacing: 2
         columnSpacing: 6
-        columns: 2
+        columns: 3
         rows: 3
 
         Text {
@@ -35,8 +35,12 @@ Rectangle {
             Layout.preferredHeight: 20
             Layout.leftMargin: 4
             font.pixelSize: 16
-            clip: true
             text: model.title || qsTr("Untitled note")
+        }
+
+        Text {
+            id: unsavedIndicator
+            text: model.isSaved ? "" : "!"
         }
 
         RoundButton {
@@ -49,7 +53,7 @@ Rectangle {
         Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 1
-            Layout.columnSpan: 2
+            Layout.columnSpan: parent.columns
             color: "#1A000000"
         }
 
@@ -58,7 +62,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.leftMargin: 4
-            Layout.columnSpan: 2
+            Layout.columnSpan: parent.columns
             font.pixelSize: 10
             wrapMode: Text.Wrap
             maximumLineCount: 2

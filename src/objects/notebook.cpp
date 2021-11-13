@@ -73,7 +73,7 @@ void Notebook::removeNotes(int idx, int count)
     _notes.erase(_notes.begin() + idx, _notes.begin() + idx + count);
 }
 
-bool Notebook::saveNote(int idx) const
+bool Notebook::saveNote(int idx)
 {
     assert(idx >= 0 && idx < _notes.size());
 

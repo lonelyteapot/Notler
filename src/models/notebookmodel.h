@@ -14,6 +14,7 @@ public:
     enum NoteRoles {
         TitleRole = Qt::UserRole,
         TextRole,
+        IsSavedRole,
     };
 
     explicit NotebookModel(QObject *parent = nullptr);
@@ -41,7 +42,7 @@ public:
     /// Removes the Note at %idx from the Notebook.
     Q_INVOKABLE bool removeNote(int idx);
     /// Saves the Note at %idx to local storage.
-    Q_INVOKABLE bool saveNote(int idx) const;
+    Q_INVOKABLE bool saveNote(int idx);
 
 private:
     Notebook _notebook = Notebook::loadFromDirectory({ROOT_STORAGE_PATH + "/Default notebook"});
