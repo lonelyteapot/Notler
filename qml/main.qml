@@ -15,6 +15,11 @@ Window {
     readonly property variant currentNotebook: sidebar.currentNotebook
     readonly property variant currentNote: sidebar.currentNote
     readonly property int currentNoteIndex: sidebar.currentNoteIndex
+    property int previousNoteIndex: -1
+    onCurrentNoteIndexChanged: {
+        currentNotebook.saveNote(previousNoteIndex)
+        previousNoteIndex = currentNoteIndex
+    }
 
     Item {
         id: colors
