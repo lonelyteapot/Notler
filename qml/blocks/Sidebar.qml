@@ -20,7 +20,7 @@ Rectangle {
             Layout.topMargin: -radius
             Layout.leftMargin: 6
             Layout.rightMargin: 6
-            color: colors.canvas
+            color: colors.primary
             border.color: colors.divider
             radius: 10
             z: 1
@@ -49,6 +49,7 @@ Rectangle {
                 anchors.topMargin: spacing
                 displayMarginBeginning: spacing
                 spacing: 6
+                currentIndex: -1
                 model: NotebookModel {}
                 delegate: SidebarNoteDelegate {}
                 footer: SidebarNewNoteButton {}

@@ -1,7 +1,7 @@
 import QtQuick 2.6
 
 Rectangle {
-    color: colors.background
+    color: enabled ? colors.background : colors.canvas
 
     TextEdit {
         id: textEdit

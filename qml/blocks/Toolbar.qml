@@ -26,7 +26,7 @@ Rectangle {
                 font.pixelSize: 16
                 opacity: 0.5
                 text: qsTr("Untitled note")
-                visible: textInput.text == ""
+                visible: !textInput.text
             }
 
             TextInput {
@@ -34,6 +34,7 @@ Rectangle {
                 anchors.fill: parent
                 verticalAlignment: TextInput.AlignVCenter
                 font.pixelSize: 16
+                selectByMouse: true
                 text: root.currentNote?.title || "";
                 onTextChanged: if (root.currentNote) root.currentNote.title = text
             }
