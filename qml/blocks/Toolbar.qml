@@ -7,6 +7,8 @@ Rectangle {
 
     RowLayout {
         anchors.fill: parent
+        anchors.topMargin: 5
+        anchors.bottomMargin: 5
         anchors.leftMargin: 8
         anchors.rightMargin: 8
         spacing: 8
@@ -38,7 +40,7 @@ Rectangle {
         }
 
         RoundButton {
-            Layout.preferredHeight: 20
+            Layout.fillHeight: true
             text: "✕"
             onClicked: sidebar.currentNoteIndex = -1
         }

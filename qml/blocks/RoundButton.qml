@@ -20,8 +20,13 @@ MouseArea {
 
     Text {
         id: label
-        anchors.centerIn: parent
-        font.pixelSize: roundButton.height - 8
+        anchors.fill: parent
+        anchors.margins: 1
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.pixelSize: height - 4
+        minimumPixelSize: 1
+        fontSizeMode: Text.VerticalFit
         opacity: roundButton.containsMouse ? 1 : 0.625
     }
 }
